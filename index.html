@@ -99,7 +99,7 @@
     background-image:
       radial-gradient(circle at 20% 15%, rgba(255,255,255,0.35), transparent 40%),
       radial-gradient(circle at 85% 80%, rgba(0,0,0,0.05), transparent 45%);
-    transition: opacity 0.7s ease, visibility 0.7s;
+    transition: opacity 0.35s ease, visibility 0.35s;
   }
   body.entered #gate { opacity: 0; visibility: hidden; pointer-events: none; }
   /* the gate is see-through to the star canvas only */
@@ -581,7 +581,7 @@
   }
 
   /* ---------- Reveal animation ---------- */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.55s ease-out, transform 0.55s ease-out; }
   .reveal.in { opacity: 1; transform: none; }
 
   /* ---------- Responsive ---------- */
@@ -695,11 +695,12 @@
           <p class="eyebrow">Side A — About Me</p>
           <h2>A little context.</h2>
           <p>
-            I'm Jabari — a computer science student at Clemson University (B.S.
-            anticipated December 2027) from Sumter, South Carolina. Right now I'm
-            a software engineering intern at SYNK, building real-time and 3D
-            features for an AI-powered virtual-event platform with Next.js,
-            WebRTC, and Three.js.
+            I'm Jabari, and I'm a computer science student at Clemson University
+            (B.S. anticipated December 2027) from Sumter, South Carolina. I was
+            originally at an HBCU called Benedict College. This summer, I got
+            the opportunity to intern as a software engineer at SYNK, building
+            real-time and 3D features for an AI-powered virtual event platform
+            with Next.js, WebRTC, and Three.js.
           </p>
           <p>
             Before that I dug through large-scale transaction data as a Business
@@ -707,7 +708,8 @@
             for composite manufacturing as a NASA EPSCoR student researcher. I'm
             a two-time first-place hackathon winner, an AWS Student Builder
             campus leader, a Clemson Forge fellow, and a ColorStack &amp; SEO EDGE
-            member. I like problems where real-time systems, data, and AI meet.
+            member. I like problems where real-time systems, data, and AI meet —
+            and I love raving, nature, and music, as you could probably tell.
           </p>
         </div>
         <aside class="info-card">
@@ -739,7 +741,7 @@
             recalculation. Full stack, shipped to production on Vercel.
           </p>
           <div class="meta"><span>Next.js</span><span>TypeScript</span><span>Claude API</span><span>Vercel</span></div>
-          <p style="margin-top:14px;"><a class="tag-link" href="#">View →</a></p>
+          <p style="margin-top:14px;"><a class="tag-link" href="https://github.com/masterjabari21-cell/academic-risk-enginee" target="_blank" rel="noopener">View on GitHub →</a></p>
         </article>
 
         <article class="tag">
@@ -759,6 +761,21 @@
         <article class="tag">
           <span class="punch"></span>
           <div class="no">No. 03</div>
+          <h3>MedicaidIQ</h3>
+          <p>
+            AI-powered Medicaid intelligence dashboard for South Carolina —
+            enrollment forecasting with confidence bands, provider fraud and
+            anomaly risk scoring, drug-pricing analysis, and streamed
+            Claude-generated policy briefs, with a CSV dataset manager for
+            swapping in new data without redeploying.
+          </p>
+          <div class="meta"><span>Node.js</span><span>Express</span><span>Chart.js</span><span>Claude API</span></div>
+          <p style="margin-top:14px;"><a class="tag-link" href="https://github.com/masterjabari21-cell/-MedicaidIQ" target="_blank" rel="noopener">View on GitHub →</a></p>
+        </article>
+
+        <article class="tag">
+          <span class="punch"></span>
+          <div class="no">No. 04</div>
           <h3>This Website</h3>
           <p>
             The page you're on — a personal site themed after <em>Call Me If You
@@ -766,7 +783,7 @@
             gate, and no-reload section transitions. Hand-rolled, no frameworks.
           </p>
           <div class="meta"><span>HTML/CSS</span><span>JavaScript</span><span>Canvas</span><span>Python</span></div>
-          <p style="margin-top:14px;"><a class="tag-link" href="#work">You're here ★</a></p>
+          <p style="margin-top:14px;"><a class="tag-link" href="https://github.com/masterjabari21-cell/Website" target="_blank" rel="noopener">View on GitHub →</a></p>
         </article>
 
       </div>
@@ -836,7 +853,7 @@
         <div class="socials">
           <a href="mailto:jabariweaver109@gmail.com">Email</a>
           <a href="https://www.linkedin.com/in/jabari-weaver-4ba638289" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/masterjabari21-cell" target="_blank" rel="noopener">GitHub</a>
           <a href="resume.pdf" download="Jabari_Weaver_Resume.pdf">Résumé</a>
         </div>
       </div>
@@ -990,7 +1007,7 @@
     var el = target && document.querySelector(target);
     if (el) el.scrollIntoView({ behavior: "auto", block: "start" });
     if (target) history.replaceState(null, "", target);
-    window.setTimeout(function () { gate.hidden = true; }, 720);
+    window.setTimeout(function () { gate.hidden = true; }, 380);
   }
 
   function backToGate() {
@@ -1064,14 +1081,13 @@
   sections.forEach(function (sec) { spy.observe(sec); });
 
   /* ---------------- Reveal on scroll ---------------- */
+  // fades a section in as soon as you start reaching it, and resets it once
+  // it's fully out of view so it fades in again on the next pass
   var revealer = new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {
-      if (en.isIntersecting) {
-        en.target.classList.add("in");
-        revealer.unobserve(en.target);
-      }
+      en.target.classList.toggle("in", en.isIntersecting);
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0, rootMargin: "0px 0px -10% 0px" });
   document.querySelectorAll(".reveal").forEach(function (el) { revealer.observe(el); });
 
   /* ---------------- Year ---------------- */
