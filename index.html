@@ -99,7 +99,8 @@
     background-image:
       radial-gradient(circle at 20% 15%, rgba(255,255,255,0.35), transparent 40%),
       radial-gradient(circle at 85% 80%, rgba(0,0,0,0.05), transparent 45%);
-    transition: opacity 0.35s ease, visibility 0.35s;
+    transition: opacity 0.55s cubic-bezier(0.33, 0, 0.2, 1), visibility 0.55s;
+    will-change: opacity;
   }
   body.entered #gate { opacity: 0; visibility: hidden; pointer-events: none; }
   /* the gate is see-through to the star canvas only */
@@ -1007,7 +1008,7 @@
     var el = target && document.querySelector(target);
     if (el) el.scrollIntoView({ behavior: "auto", block: "start" });
     if (target) history.replaceState(null, "", target);
-    window.setTimeout(function () { gate.hidden = true; }, 380);
+    window.setTimeout(function () { gate.hidden = true; }, 620);
   }
 
   function backToGate() {
