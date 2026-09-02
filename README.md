@@ -39,7 +39,7 @@ On the gate (the licence card):
 
 On the main site:
 
-- **Hero** — the one-line intro under your name.
+- **Hero** — the one line intro under your name.
 - **About** — 2–3 paragraphs + the "Traveler's Card" fields (location, role, focus, status).
 - **Work** — replace the three luggage-tag cards with real projects (title, blurb, role/year/stack, link).
 - **Résumé** — the timeline entries, the skills chips, and the "Download Résumé (PDF)" link

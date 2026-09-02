@@ -27,6 +27,7 @@
     --star-mint:  #a9d8b8;
     --star-sky:   #5cc4dc;
     --star-gold:  #e2b451;
+    --star-lilac: #c9b1dd;
 
     --serif:  "DM Serif Display", Georgia, "Times New Roman", serif;
     --type:   "Special Elite", "Cutive Mono", ui-monospace, monospace;
@@ -344,6 +345,7 @@
   .id-nav a:nth-child(2) { background: var(--star-pink); }
   .id-nav a:nth-child(3) { background: var(--star-mint); }
   .id-nav a:nth-child(4) { background: var(--star-sky); }
+  .id-nav a:nth-child(5) { background: var(--star-lilac); }
   .id-nav a:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--ink); }
 
   .enter-hint {
@@ -543,6 +545,60 @@
 
   .resume-download { margin-top: 34px; }
 
+  /* ---------- Extracurriculars (passport stamps) ---------- */
+  #life h2 { font-size: clamp(2rem, 5vw, 3.1rem); margin-bottom: 8px; }
+  #life .lede {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    margin: 0 0 36px;
+    max-width: 52ch;
+    opacity: 0.8;
+  }
+  .stamps {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 26px 22px;
+  }
+  .stamp-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+    padding: 15px 24px 12px;
+    border: 2px solid currentColor;
+    border-radius: 12px;
+    outline: 1px solid currentColor;
+    outline-offset: -7px;
+    color: var(--stamp);
+    mix-blend-mode: multiply;
+    transform: rotate(-2deg);
+    transition: transform 0.15s ease;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.94'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.94'/%3E%3C/svg%3E");
+  }
+  .stamp-item strong {
+    font-family: var(--block);
+    font-weight: 400;
+    font-size: 1.3rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .stamp-item span {
+    font-family: var(--type);
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+  .stamp-item:nth-child(3n+2) { color: var(--teal); transform: rotate(1.6deg); }
+  .stamp-item:nth-child(3n+3) { color: var(--blue); transform: rotate(-1deg); }
+  .stamp-item:nth-child(4n+4) { transform: rotate(2.2deg); }
+  .stamp-item.honor { color: #9c7318; } /* gold ink for honors */
+  .stamp-item:hover { transform: rotate(0deg) scale(1.04); }
+
   /* ---------- Contact ---------- */
   #contact { padding-bottom: 120px; }
   .contact-card {
@@ -598,7 +654,7 @@
       overflow: hidden;
       transition: max-height 0.3s ease;
     }
-    .nav-links.open { max-height: 320px; }
+    .nav-links.open { max-height: 420px; }
     .nav-links a { padding: 14px 20px; border-bottom: 1px dashed rgba(33,29,23,0.3); }
     .nav-toggle { display: block; }
     .about-grid { grid-template-columns: 1fr; }
@@ -666,6 +722,7 @@
     <a href="#about">About Me</a>
     <a href="#work">Projects</a>
     <a href="#resume">Experience</a>
+    <a href="#life">Campus Life</a>
     <a href="#contact">Contact</a>
   </nav>
   <p class="enter-hint">call me if you get lost</p>
@@ -682,6 +739,7 @@
         <a href="#about">About Me</a>
         <a href="#work">Projects</a>
         <a href="#resume">Experience</a>
+        <a href="#life">Campus Life</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -704,12 +762,12 @@
             with Next.js, WebRTC, and Three.js.
           </p>
           <p>
-            Before that I dug through large-scale transaction data as a Business
-            Analyst intern at Capital One and built ML defect-prediction models
+            Before that I dug through large scale transaction data as a Business
+            Analyst intern at Capital One and built ML defect prediction models
             for composite manufacturing as a NASA EPSCoR student researcher. I'm
-            a two-time first-place hackathon winner, an AWS Student Builder
+            a two time first place hackathon winner, an AWS Student Builder
             campus leader, a Clemson Forge fellow, and a ColorStack &amp; SEO EDGE
-            member. I like problems where real-time systems, data, and AI meet —
+            member. I like problems where real time systems, data, and AI meet —
             and I love raving, nature, and music, as you could probably tell.
           </p>
         </div>
@@ -719,7 +777,7 @@
           <div class="info-row"><span>Based in</span><span>Sumter, SC</span></div>
           <div class="info-row"><span>Role</span><span>SWE Intern @ SYNK</span></div>
           <div class="info-row"><span>School</span><span>Clemson · CS '27</span></div>
-          <div class="info-row"><span>Focus</span><span>Full-Stack · AI · Real-Time</span></div>
+          <div class="info-row"><span>Focus</span><span>Full-Stack · AI · Software Engineering</span></div>
           <div class="info-row"><span>Status</span><span>Open to opportunities</span></div>
         </aside>
       </div>
@@ -842,6 +900,32 @@
 
       <div class="resume-download">
         <a class="btn" href="resume.pdf" download="Jabari_Weaver_Resume.pdf">Download Résumé (PDF)</a>
+      </div>
+    </section>
+
+    <!-- ================= EXTRACURRICULARS ================= -->
+    <section id="life" class="reveal">
+      <p class="eyebrow">Passport Stamps — Campus Life</p>
+      <h2>Stamps along the way.</h2>
+      <p class="lede">Every stop leaves a mark. Clubs, bands, and communities
+         I've picked up between the code.</p>
+
+      <div class="stamps">
+        <div class="stamp-item"><strong>Clemson Forge</strong><span>SWE Fellow · Spring 2026</span></div>
+        <div class="stamp-item"><strong>AWS Student Builder</strong><span>Campus Leader</span></div>
+        <div class="stamp-item"><strong>ColorStack</strong><span>Clemson Chapter</span></div>
+        <div class="stamp-item"><strong>SEO EDGE</strong><span>SEO Career</span></div>
+        <div class="stamp-item"><strong>Transfer Council</strong><span>Philanthropy Committee</span></div>
+        <div class="stamp-item"><strong>Central Spirit</strong><span>Spirit Organization</span></div>
+        <div class="stamp-item"><strong>Line Dancing Club</strong><span>Clemson University</span></div>
+        <div class="stamp-item"><strong>French Club</strong><span>Le Club Français</span></div>
+        <div class="stamp-item"><strong>Java World</strong><span>Benedict College</span></div>
+        <div class="stamp-item"><strong>NSBE</strong><span>Benedict College</span></div>
+        <div class="stamp-item"><strong>Robotics Club</strong><span>Benedict College</span></div>
+        <div class="stamp-item"><strong>Marching Band</strong><span>Benedict College</span></div>
+        <div class="stamp-item"><strong>Concert Band</strong><span>Benedict College</span></div>
+        <div class="stamp-item honor"><strong>Dean's List</strong><span>2× · Benedict College</span></div>
+        <div class="stamp-item honor"><strong>President's List</strong><span>Benedict College</span></div>
       </div>
     </section>
 
